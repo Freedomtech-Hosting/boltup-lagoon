@@ -28,6 +28,7 @@ RUN apk add --no-cache git \
         procps \
         coreutils \
         findutils \
+        openssl \
     && rm -rf /var/cache/apk/* \
     && mkdir -p /home/.ssh \
     && fix-permissions /home/
