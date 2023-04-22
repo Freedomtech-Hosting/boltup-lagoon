@@ -36,4 +36,7 @@ RUN mkdir /app/storage/tor \
 # Add an entrypoint that starts TOR
 COPY tor/entrypoints/99-entrypoint-tor.sh /lagoon/entrypoints/
 
+# Add a tor check command
+COPY tor/check-tor /usr/bin
+
 CMD ["/usr/bin/tor"]
