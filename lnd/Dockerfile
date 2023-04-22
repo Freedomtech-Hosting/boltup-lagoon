@@ -30,5 +30,6 @@ RUN mkdir /app/storage/lnd \
 
 # Add an entrypoint that starts TOR
 COPY lnd/entrypoints/99-entrypoint-lnd.sh /lagoon/entrypoints/
+COPY lnd/lnd.conf /app
 
-#CMD ["/usr/bin/lnd"]
+CMD ["/usr/bin/lnd","--lnddir=/app/storage/lnd","--configfile=/app/lnd.conf"]

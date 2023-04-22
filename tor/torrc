@@ -1,6 +1,9 @@
 # Let tor listen on loopback interface only, on port 9050
 SocksPort 0.0.0.0:9050
 
+# Control port for service registration by LND
+HashedControlPassword 16:BAC68AFAD2E5895960CDE27649DA416AA913A19BE28C00119A5EBFFAFE
+
 # Try for at most NUM seconds when building circuits. If the circuit isn't open in that time, give up on it. (Default: 1 minute.)
 CircuitBuildTimeout 5
 

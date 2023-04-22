@@ -11,6 +11,7 @@
  - lagoon.type: basic-persistent
 
 ## LND (lnd/)
+ - Basics from https://github.com/alexbosworth/run-lnd#install-lnd
  - Downloads and installs the binary release from github
  - lagoon.type: basic-persistent
 
