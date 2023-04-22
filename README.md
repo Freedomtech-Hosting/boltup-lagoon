@@ -2,8 +2,9 @@
 
 ## TOR
  - Basic ideas from https://github.com/Schnitzel/donations.schnitzel.world-proxy
+ - Starts tor as a CMd in the Dockerfile
 
 ## LND
- - Basic ideas from https://bn4t.me/posts/setting-up-a-lightning-node-using-docker/
+ - Downloads and installs the binary release from github
 
 
