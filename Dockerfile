@@ -1,5 +1,8 @@
 FROM uselagoon/commons:latest
 
+#######################################################################
+# BoltUp Base
+#######################################################################
 WORKDIR /app
 
 RUN fix-permissions /etc/passwd \
@@ -54,6 +57,9 @@ ADD boltupbase/supervisord.conf /etc/
 RUN mkdir -p /etc/supervisor/conf.d/ && fix-permissions /etc/supervisor/conf.d
 CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf"]
 
+#######################################################################
+# Tor and related tools
+#######################################################################
 # Install Socat for SOCKS Proxy 
 RUN apk add socat 
 
@@ -79,6 +85,9 @@ COPY tor/supervisor-tor.conf /etc/supervisor/conf.d/
 # Add a tor check command
 COPY tor/check-tor /usr/bin
 
+#######################################################################
+# LND and related tools
+#######################################################################
 # Install LND
 ENV LND_RELEASE_VER "v0.16.0-beta"
 RUN wget https://github.com/lightningnetwork/lnd/releases/download/${LND_RELEASE_VER}/lnd-linux-amd64-${LND_RELEASE_VER}.tar.gz -O /tmp/lnd.tar.gz \
@@ -96,3 +105,5 @@ COPY lnd/lnd.conf /app
 
 # Add a supervisor config for LND
 COPY lnd/supervisor-lnd.conf /etc/supervisor/conf.d/
+
+
