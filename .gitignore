@@ -1,3 +1,2 @@
-storage/tor
-storage/lnd
+storage
 .env.local

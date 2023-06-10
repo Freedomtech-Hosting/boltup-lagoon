@@ -1,0 +1,8 @@
+backupsEnabled: false
+accounts:
+  - name: Account 1
+    serverUrl: boltup:10009
+    macaroonPath: /data/lnd/data/chain/bitcoin/testnet/admin.macaroon
+    certificatePath: /data/lnd/tls.cert
+    password: freedomtech
+    network: testnet

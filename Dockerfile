@@ -1,11 +1,9 @@
-FROM uselagoon/commons:latest
+FROM lightninglabs/lndinit:v0.1.13-beta-lnd-v0.16.3-beta
 
 #######################################################################
 # BoltUp Base
 #######################################################################
 WORKDIR /app
-
-RUN mkdir /app/storage && fix-permissions /app/storage
 
 # Install Supervisord
 RUN apk add --update --no-cache supervisor
@@ -27,24 +25,18 @@ COPY tor/torrc /etc/tor/torrc
 COPY tor/supervisor-tor.conf /etc/supervisor/conf.d/
 
 #######################################################################
-# LND and related tools
+# LND config
 #######################################################################
-# Install LND
-ENV LND_RELEASE_VER "v0.16.0-beta"
-RUN wget https://github.com/lightningnetwork/lnd/releases/download/${LND_RELEASE_VER}/lnd-linux-amd64-${LND_RELEASE_VER}.tar.gz -O /tmp/lnd.tar.gz \
-	&& tar -zxvf /tmp/lnd.tar.gz -C /tmp --strip-components=1 \
-    && mv /tmp/lnd /usr/bin && chmod +x /usr/bin/lnd \
-    && mv /tmp/lncli /usr/bin && chmod +x /usr/bin/lncli \
-    && rm -rf /tmp/*
 
-
-RUN ln -s /app/storage/lnd /home/.lnd
+RUN ln -s /app/storage/lnd /.lnd
 
 COPY lnd/lnd.conf /app
+COPY lnd/init-wallet.sh /
 
 # Add a supervisor config for LND
 COPY lnd/supervisor-lnd.conf /etc/supervisor/conf.d/
 
+ENTRYPOINT [""]
 
 
-CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf"]
+CMD ["supervisord", "--configuration", "/etc/supervisord.conf"]
