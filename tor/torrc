@@ -23,4 +23,4 @@ NumEntryGuards 8
 RunAsDaemon 0
 
 ## The directory for keeping all the keys/etc
-DataDirectory /app/storage/tor/data
+DataDirectory /app/storage/tor
