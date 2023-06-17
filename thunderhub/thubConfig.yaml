@@ -1,0 +1,8 @@
+backupsEnabled: false
+accounts:
+  - name: ${LND_ALIAS}
+    serverUrl: lnd:10009
+    macaroonPath: /data/lnd/data/chain/bitcoin/${BITCOIN_NETWORK}/admin.macaroon
+    certificatePath: /data/lnd/tls.cert
+    password: ${LND_WALLETPASSWORD}
+    network: ${BITCOIN_NETWORK}
