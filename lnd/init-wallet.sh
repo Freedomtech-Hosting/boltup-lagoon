@@ -62,8 +62,7 @@ lndinit -v init-wallet \
     --secret-source=file \
     --file.seed=/app/storage/seed.txt \
     --file.wallet-password=/app/storage/walletpassword.txt \
-    --init-file.output-wallet-dir=/.lnd/data/chain/bitcoin/${BITCOIN_NETWORK} \
-    --init-file.validate-password
+    --init-file.output-wallet-dir=/.lnd/data/chain/bitcoin/${BITCOIN_NETWORK}
 
 # And finally start lnd. We need to use "exec" here to make sure all signals are
 # forwarded correctly.
