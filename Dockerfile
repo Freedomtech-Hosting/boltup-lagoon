@@ -41,7 +41,8 @@ COPY lnd/init-wallet.sh /
 
 ENV BITCOIN_NETWORK=testnet \
     LND_ALIAS=lnd-node-1 \
-    LND_WALLETPASSWORD=freedomtech
+    LND_WALLETPASSWORD=freedomtech \
+    LND_DEBUG_LEVEL=info
 
 # Add a supervisor config for LND
 COPY lnd/supervisor-lnd.conf /etc/supervisor/conf.d/
