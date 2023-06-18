@@ -29,8 +29,8 @@ services:
       - amazeeio-network
       - default
     build:
-      context: .
-      dockerfile: thunderhub.dockerfile
+      context: thunderhub
+      dockerfile: Dockerfile
     user: '10000'
     environment:
       LOG_LEVEL: silly

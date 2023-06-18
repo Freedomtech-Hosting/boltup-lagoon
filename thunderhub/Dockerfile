@@ -3,7 +3,7 @@ FROM apotdevin/thunderhub:v0.13.19
 
 COPY --from=commons /bin/fix-permissions /bin/ep /bin/
 
-COPY thunderhub/thubConfig.yaml /thubConfig.yaml
+COPY thubConfig.yaml /thubConfig.yaml
 
 RUN fix-permissions /app/src/client/.next/cache/ \
     && fix-permissions /thubConfig.yaml
