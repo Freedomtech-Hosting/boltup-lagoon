@@ -11,6 +11,6 @@ environments:
   main:
     routes:
       - lit:
-        - "lit.dev.boltup-lagoon-demo.us2.amazee.io":
+        - "lit.main.boltup-lagoon-demo.us2.amazee.io":
             annotations:
               nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
