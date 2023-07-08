@@ -44,7 +44,7 @@ else
     exit 1
 fi
 
-
+echo -e "$LND_BTCD_RPCCERT" > /app/storage/rpc.cert
 
 if [[ ! -d /app/storage/lnd ]]; then
     mkdir -p /app/storage/lnd
