@@ -44,7 +44,16 @@ else
     exit 1
 fi
 
-echo -e "$LND_BTCD_RPCCERT" > /app/storage/rpc.cert
+# Create rpc.cert for btcd node. If the LND_BTCD_RPCCERT env variable is empty,
+# ensure we have an empty cert, as then lnd will use public cert authorities
+if [ -z "$LND_BTCD_RPCCERT" ]
+then
+      rm -f /app/storage/rpc.cert
+      touch /app/storage/rpc.cert
+else
+      echo -e "$LND_BTCD_RPCCERT" > /app/storage/rpc.cert
+fi
+
 
 if [[ ! -d /app/storage/lnd ]]; then
     mkdir -p /app/storage/lnd
