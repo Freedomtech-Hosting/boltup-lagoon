@@ -1,16 +1,1 @@
 docker-compose-yaml: docker-compose.yml
-
-
-environments:
-  dev:
-    routes:
-      - lit:
-        - "lit.dev.boltup-lagoon-demo.us2.amazee.io":
-            annotations:
-              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-  main:
-    routes:
-      - lit:
-        - "lit.main.boltup-lagoon-demo.us2.amazee.io":
-            annotations:
-              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
