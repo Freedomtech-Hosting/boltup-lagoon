@@ -1,26 +1,11 @@
-# Let tor listen on loopback interface only, on port 9050
-SocksPort 9050
+# Let tor socks proxy listen on port 9050
+SocksPort 0.0.0.0:9050
 
 # Tor listens on 9051 for controlport
-ControlPort 9051
+ControlPort 0.0.0.0:9051
 
 # Control port for service registration by LND its 'HideMeViaTor'
 HashedControlPassword 16:BAC68AFAD2E5895960CDE27649DA416AA913A19BE28C00119A5EBFFAFE
 
-# Try for at most NUM seconds when building circuits. If the circuit isn't open in that time, give up on it. (Default: 1 minute.)
-CircuitBuildTimeout 5
-
-# Send a padding cell every N seconds to keep firewalls from closing our connections while Tor is not in use.
-KeepalivePeriod 60
-
-# Force Tor to consider whether to build a new circuit every NUM seconds.
-NewCircuitPeriod 15
-
-# How many entry guards should we keep at a time?
-NumEntryGuards 8
-
-# Don't daemonize tor, we'll run it as a Docker CMD
-RunAsDaemon 0
-
 ## The directory for keeping all the keys/etc
-DataDirectory /app/storage/tor
+DataDirectory /var/lib/tor
