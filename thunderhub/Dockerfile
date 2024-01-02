@@ -1,5 +1,5 @@
 FROM uselagoon/commons as commons
-FROM apotdevin/thunderhub:v0.13.19
+FROM apotdevin/thunderhub:v0.13.20
 
 COPY --from=commons /bin/fix-permissions /bin/ep /bin/
 
